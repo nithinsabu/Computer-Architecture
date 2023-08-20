@@ -1,7 +1,22 @@
 	.data
 a:
-	10
+	11011
 	.text
-// your code here to check if 'a' is a palindrome
-// you may change the value of 'a'
-// remove these comments!
+main:
+	load %x0, $a, %x3
+	add %x0, %x3, %x4
+	add %x0, %x0, %x5
+loop:
+	beq %x3, %x5, success
+	beq %x4, %x0, endl
+	muli %x5, 10, %x5
+	divi %x4, 10, %x6
+	add %x5, %x31, %x5
+	add %x0, %x6, %x4
+	jmp loop
+success:
+	addi %x0, 1, %x10
+	end
+endl:
+	subi %x0, 1, %x10
+	end
