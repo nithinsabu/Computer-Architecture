@@ -8,7 +8,7 @@ main:
 	addi %x0, 65535, %x4
 	beq %x3, %x20, exception
 	addi %x0, 2, %x11
-	addi %x0, 1, %x5
+	addi %x0, 0, %x5
 	addi %x0, 1, %x6
 	store %x5, 0, %x4
 	subi %x4, 1, %x4
@@ -22,6 +22,6 @@ loop:
 	store %x6, 0, %x4
 	jmp loop
 exception:
-	store %x3, 0, %x4
+	store %x0, 0, %x4
 exit:
 	end
